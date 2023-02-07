@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Study Timer</title>
+</head>
+<body>
+    <header>
+        <h1>Study Timer & Breaks</h1>
+        <p>
+            Andrew Huberman’s 10 Second Study Pause Technique is a unique way to improve focus and concentration while studying. It works by taking a 10-second break every 5-10 minutes (random) while studying. This break can be used to close your eyes, take a few deep breaths, or just sit in silence. Doing this helps to refocus your energy and attention allowing you to stay focused for longer.
+        </p>
+        <p>
+        The 10-second break gives your brain time to process and store the information you’ve just learned. It also allows for better creative thinking and problem-solving. This technique is ideal for people who have difficulty focusing on one task for extended periods of time. It allows for a brief break that can help to reduce feelings of restlessness and boredom.
+        </p>
+        <p>
+            The 10 Second Study Pause Technique can be used for any form of studying. Whether it’s reading a textbook, writing an essay, or studying a foreign language. It can also be used in the workplace to improve productivity.
+        </p>
+    </header>
+    <main>
+        <h2 id="timer">00:00:00</h2>
+        <div id="buttons">
+            <button class="button start">Start</button>
+            <button class="button stop">Stop</button>
+            <button class="button reset">Reset</button>
+        </div>
+        <div id="seperator"></div>
+        <div id="records">
+            <h3>Break History</h3>
+            <ul id="break-list">
+                <li class="break-element">00:00:00</li>
+                <li class="break-element">00:00:00</li>
+            </ul>
+        </div>
+    </main>
+    <footer>
+        <p id="footer-text">&copy; <span id="year"></span> Sebastian Benad</p>
+    </footer>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
