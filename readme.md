@@ -2,7 +2,7 @@
 ## Spec
 
 A study timer that can be started, stopped and reset.
-The timer is designed to play a peacful indicator sound randomly every 5 - 10 minutes ~ and records at which time interval the buzzes occured. 
+The timer is designed to play an indicator sound randomly every 5 - 10 minutes ~ and records at which time interval the sound occured. 
 
 ### What & Why
 

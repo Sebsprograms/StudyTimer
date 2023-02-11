@@ -22,7 +22,8 @@ resetButton.on('click', function () {
 });
 
 // Timer Logic
-let randomTime = generateRandomTime();
+let randomBreakTime = generateRandomBreakTime();
+let breakElapseTimer = 0;
 let totalTimeInSeconds = 0;
 let hours = 0;
 let minutes = 0;
@@ -34,9 +35,9 @@ setTimer();
 function startTimer() {
     if (isTimerOff) {
         timer = setInterval(function () {
-            console.log(randomTime);
             adjustTime();
             setTimer();
+            checkForBreak();
         }, 1000);
         isTimerOff = false;
     }
@@ -44,7 +45,8 @@ function startTimer() {
 
 // Increments total seconds and adjusts display variables hours, minutes & seconds
 function adjustTime() {
-    totalTimeInSeconds += 1;
+    totalTimeInSeconds++;
+    breakElapseTimer++;
     hours = Math.floor(totalTimeInSeconds / 3600);
     minutes = Math.floor(totalTimeInSeconds / 60) % 60;
     seconds = totalTimeInSeconds % 3600 % 60;
@@ -56,10 +58,37 @@ function setTimer() {
     timerElement.html(timeText);
 }
 
-function playSoundAtInterval() {}
+/// checks if it is time for a break.
+/// plays sound and resets break timer if so
+function checkForBreak() {
+    if(breakElapseTimer === randomBreakTime) {
+        recordBreakTime();
+        playSound();
+        resetBreakTime();
+    }
+}
+
+function recordBreakTime() {
+    const breakList = $('#break-list');
+    const timeText = getTime();
+    breakList.append(`<li class="break-element">${timeText}</li>`);
+}
+
+/// Play sound for study interval
+function playSound() {
+    const audio = new Audio('./assets/snare.mp3');
+    audio.play();
+}
+
+/// resets breakElapseTimer and generates a new random break time
+function resetBreakTime() {
+    breakElapseTimer = 0;
+    randomBreakTime = generateRandomBreakTime();
+}
+
 
 /// Generate random time in seconds 
-function generateRandomTime(min = 300, max = 600) {
+function generateRandomBreakTime(min = 300, max = 600) {
     let difference = max - min;
     let rand = Math.random();
 
